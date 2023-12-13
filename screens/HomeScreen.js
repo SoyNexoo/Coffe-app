@@ -13,7 +13,10 @@ import SearchField from "../components/SearchField";
 import Categories from "../components/Categories";
 import coffes from "../components/Coffes";
 import Coffe from "../components/Coffe";
+import { useState } from "react";
+
 const HomeScreen = () => {
+  const [activeCategoryId, setActiveCategoryId] = useState(null);
   return (
     <SafeAreaView>
       <ScrollView style={{ padding: 30 }}>
@@ -80,6 +83,7 @@ const HomeScreen = () => {
               rating={ele.rating}
               name={ele.name}
               included={ele.included}
+              price={ele.price}
             ></Coffe>
           ))}
         </View>

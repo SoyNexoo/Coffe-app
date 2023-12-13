@@ -2,7 +2,7 @@ import { BlurView } from "expo-blur";
 import { Dimensions, Text, View, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 const { width } = Dimensions.get("window");
-const Coffe = ({ image, rating, name, included }) => {
+const Coffe = ({ image, rating, name, included, price }) => {
   return (
     <View
       style={{
@@ -10,6 +10,7 @@ const Coffe = ({ image, rating, name, included }) => {
         marginBottom: 10,
         borderRadius: 30,
         overflow: "hidden",
+        backgroundColor: "#ffffff44",
       }}
     >
       <BlurView tint="dark" intensity={95} style={{ padding: 10 }}>
@@ -53,7 +54,30 @@ const Coffe = ({ image, rating, name, included }) => {
         >
           {name}
         </Text>
-        <Text style={{ color: "white" }}>{included}</Text>
+        <Text numberOfLines={1} style={{ color: "white" }}>
+          {included}
+        </Text>
+        <View
+          style={{
+            marginVertical: 5,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flexDirection: "row", gap: 5 }}>
+            <Text style={{ color: "#E63946", fontSize: 16 }}>$</Text>
+            <Text style={{ color: "white", fontSize: 18 }}>{price}</Text>
+          </View>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#E63946",
+              padding: 5,
+            }}
+          >
+            <Ionicons name="add" size={12} color={"white"}></Ionicons>
+          </TouchableOpacity>
+        </View>
       </BlurView>
     </View>
   );
