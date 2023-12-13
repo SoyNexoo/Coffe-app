@@ -66,7 +66,7 @@ const Coffe = ({ image, rating, name, included, price }) => {
           }}
         >
           <View style={{ flexDirection: "row", gap: 5 }}>
-            <Text style={{ color: "#E63946", fontSize: 16 }}>$</Text>
+            <Text style={{ color: "#E63946", fontSize: 18 }}>$</Text>
             <Text style={{ color: "white", fontSize: 18 }}>{price}</Text>
           </View>
           <TouchableOpacity

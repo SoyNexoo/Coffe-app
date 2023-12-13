@@ -62,30 +62,37 @@ const HomeScreen = () => {
             </BlurView>
           </View>
         </View>
-        <View style={{ width: "80%", marginVertical: 30 }}>
+        <View style={{ width: "90%", marginVertical: 30 }}>
           <Text style={{ color: "white", fontSize: 35, fontWeight: "600" }}>
-            Encuentra el mejor cafe para ti!
+            <Text style={{ color: "#E63946" }}>Encuentra</Text> el mejor cafe{" "}
+            para <Text style={{ color: "#E63946" }}>ti</Text>!
           </Text>
         </View>
         <SearchField></SearchField>
-        <Categories></Categories>
+        <Categories onChange={(id) => setActiveCategoryId(id)}></Categories>
         <View
           style={{
             flexDirection: "row",
             flexWrap: "wrap",
             justifyContent: "space-between",
+            marginBottom: 50,
           }}
         >
-          {coffes.map((ele) => (
-            <Coffe
-              key={ele.id}
-              image={ele.image}
-              rating={ele.rating}
-              name={ele.name}
-              included={ele.included}
-              price={ele.price}
-            ></Coffe>
-          ))}
+          {coffes
+            .filter((coffee) => {
+              if (activeCategoryId === null) return true;
+              return coffee.categoryId === activeCategoryId;
+            })
+            .map((ele) => (
+              <Coffe
+                key={ele.id}
+                image={ele.image}
+                rating={ele.rating}
+                name={ele.name}
+                included={ele.included}
+                price={ele.price}
+              ></Coffe>
+            ))}
         </View>
       </ScrollView>
     </SafeAreaView>

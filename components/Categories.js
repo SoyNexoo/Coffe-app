@@ -3,6 +3,10 @@ import { FlatList, View, Text, TouchableOpacity } from "react-native";
 
 const categories = [
   {
+    id: null,
+    name: "Todos",
+  },
+  {
     id: 1,
     name: "Cappuccino",
   },
@@ -17,10 +21,11 @@ const categories = [
   },
 ];
 
-const Categories = () => {
+const Categories = ({ onChange }) => {
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const handlePress = (id) => {
     setActiveCategoryId(id);
+    onChange(id);
   };
   return (
     <FlatList
