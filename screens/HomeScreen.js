@@ -11,6 +11,8 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import SearchField from "../components/SearchField";
 import Categories from "../components/Categories";
+import coffes from "../components/Coffes";
+import Coffe from "../components/Coffe";
 const HomeScreen = () => {
   return (
     <SafeAreaView>
@@ -64,6 +66,23 @@ const HomeScreen = () => {
         </View>
         <SearchField></SearchField>
         <Categories></Categories>
+        <View
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+          }}
+        >
+          {coffes.map((ele) => (
+            <Coffe
+              key={ele.id}
+              image={ele.image}
+              rating={ele.rating}
+              name={ele.name}
+              included={ele.included}
+            ></Coffe>
+          ))}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
